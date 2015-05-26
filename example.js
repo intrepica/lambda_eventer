@@ -1,6 +1,12 @@
-var lambda = require("./index");
+var lambda = require('./index');
+var path = require('path');
 
-lambda.handler({
+// Load .env into environment variables
+require('dotenv').load({ 
+  path: path.join(__dirname, '.env') 
+});
+
+var message = {
   "user_id": "30",
   "email": "test@serenity.io",
   "name": "Hoban Washburne",
@@ -11,12 +17,23 @@ lambda.handler({
     "paid_subscriber" : true,
     "monthly_spend": 155.5,
     "team_mates": 10
-  }}, {
-    fail: function(err) {
-      console.log(err);
-    },
-    succeed: function(res) {
-      console.log(res);
-    }
-  });
+  }
+};
+
+lambda.handler({ 
+  Records:[ 
+    { 
+      Sns: { 
+        Message:JSON.stringify(message) 
+      } 
+    } 
+  ]
+}, {
+  fail: function(err) {
+    console.log(err);
+  },
+  succeed: function(res) {
+    console.log(res);
+  }
+});
 

@@ -1,15 +1,6 @@
 console.log('Loading function');
 
-var path = require('path');
 var request = require('request');
-
-// Load .env into environment variables
-var env = process.env.NODE_ENV === 'test' ? '.env.test' : '.env';
-
-require('dotenv').load({ 
-  path: path.join(__dirname, env) 
-});
-
 
 var options = exports.options = {
   method: 'POST',
