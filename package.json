@@ -1,10 +1,17 @@
 {
-  "name": "intercom_users",
+  "name": "lambda_eventer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "author": "Tim Fairbrother <tdfairbrother@gmail.com>",
   "license": "ISC",
+  "scripts": {
+    "start": "make start",
+    "test": "make test",
+    "debug": "make debug",
+    "debug-test": "make debug-test",
+    "watch": "make watch"
+  },  
   "dependencies": {
     "dotenv": "^1.1.0",
     "request": "^2.55.0"

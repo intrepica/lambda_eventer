@@ -1,12 +1,9 @@
-
-Creates or updates a user in Intercom.io
-
-Uses the following api
+An AWS Lambda function for posting an AWS SNS event message to an external service as JSON.
 
 ```sh
 $ curl https://api.intercom.io/users \
 -X POST \
--u pi3243fa:da39a3ee5e6b4b0d3255bfef95601890afd80709 \
+-u xxx:xxx \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' -d '
 {

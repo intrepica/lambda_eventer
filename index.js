@@ -13,7 +13,7 @@ require('dotenv').load({
 
 var options = exports.options = {
   method: 'POST',
-  url: process.env.INTERCOM_USERS_API,
+  url: process.env.API,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
