@@ -13,7 +13,6 @@
     "watch": "make watch"
   },
   "dependencies": {
-    "dotenv": "^1.1.0",
     "request": "^2.55.0"
   },
   "devDependencies": {
