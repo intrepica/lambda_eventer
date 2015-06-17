@@ -27,7 +27,7 @@ exports.handler = function(event, context) {
       }
       if (error) {
         context.fail(error);  
-      } else if (!error && response.statusCode === 200) {        
+      } else if (!error && (response.statusCode === 200 || ((response.statusCode % 100) === 2))) {        
          context.succeed();
       } else {        
          context.fail(new Error(JSON.stringify(response)));

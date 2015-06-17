@@ -8,7 +8,7 @@ var proxyquire = require('proxyquire').noPreserveCache();
 var mock = sinon.mock;
 
 
-describe('intercom_users', function(){
+describe('lambda_eventer', function(){
     var requireStubs, lambda, sqsEvent, context, message;
 
     beforeEach(function(){
@@ -30,9 +30,17 @@ describe('intercom_users', function(){
             done();                
         });
 
-        describe('when request returns statusCode 200', function() {                    
+        describe('when request returns statusCode in the 200\'s', function() {                    
             it('calls succeed on context', function(done) {                             
                 requireStubs.request.yields(null, { statusCode:200 });                               
+                context.succeed = mock().once();                
+                lambda.handler(sqsEvent, context);                
+                context.succeed.verify();                        
+                done();              
+            });
+
+            it('calls succeed on context', function(done) {                             
+                requireStubs.request.yields(null, { statusCode:202 });                               
                 context.succeed = mock().once();                
                 lambda.handler(sqsEvent, context);                
                 context.succeed.verify();                        
